@@ -1,0 +1,16 @@
+{
+  "name": "collections",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/Crinax/collections",
+  "author": "Crinax <agreedeth@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.8.1"
+  }
+}
