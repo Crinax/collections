@@ -1,7 +1,7 @@
 import { ICollection } from "../../common/interfaces/collection.interface";
 import { gt } from "../logic/gt.operator";
 
-export const min = (
+export const max = (
   element: number,
   _: number,
   collection: ICollection<number>
