@@ -1,1 +1,4 @@
-export const gt = (value: number) => (element: number) => element > value;
+import { ComparisonOperator } from "../../common/types/comparison-operator.type";
+
+export const gt: ComparisonOperator<number> = (value: number) =>
+  (element: number) => element > value;
