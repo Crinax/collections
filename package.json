@@ -5,7 +5,6 @@
   "repository": "https://github.com/Crinax/collections",
   "author": "Crinax <agreedeth@gmail.com>",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "typescript": "^4.7.4"
   },
