@@ -1,0 +1,1 @@
+export type ContainsLength = { length: number | BigInt };
