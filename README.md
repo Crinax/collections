@@ -9,3 +9,8 @@ Please, check it here -> [Collection interface](https://github.com/Crinax/collec
 ## Operators
 
 I'm still too lazy to write something, so look here -> [Operators](https://github.com/Crinax/collections/tree/main/lib/operators)
+
+
+## Build
+
+I'm S T I L L to lazy to make build, you can use only typescript. JS unsupported :D
