@@ -1,1 +1,4 @@
-export const index = <T>(i: number) => (_: T, index: number) => i === index;
+export const index =
+  <T>(i: number) =>
+  (_: T, index: number) =>
+    i === index;

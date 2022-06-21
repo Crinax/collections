@@ -31,12 +31,11 @@ export class Collection<T> implements ICollection<T> {
   public find(
     fromIndex: number,
     toIndex: number,
-    operator: FindOperator<T> = first,
+    operator: FindOperator<T> = first
   ): ICollection<T> {
     let step = 1;
-    let predicate = (i: number, direction: number, to: number) => direction < 0
-      ? i > to
-      : i < to;
+    const predicate = (i: number, direction: number, to: number) =>
+      direction < 0 ? i > to : i < to;
 
     if (toIndex < fromIndex) {
       step = -1;
@@ -64,11 +63,9 @@ export class Collection<T> implements ICollection<T> {
   public map<Y = T>(operator: MapOperator<T, Y>): ICollection<Y> {
     const result: Y[] = [];
     const collectionLength = this.#_collection.length;
-    
+
     for (let i = 0; i < collectionLength; i++) {
-      result.push(
-        operator(this.#_collection[i], i, this.clone()),
-      );
+      result.push(operator(this.#_collection[i], i, this.clone()));
     }
 
     return Collection.create<Y>(...result);
@@ -91,22 +88,19 @@ export class Collection<T> implements ICollection<T> {
     for (let i = 0; i < collectionLength; i++) {
       result.unshift(this.#_collection[i]);
     }
-    
+
     return Collection.create<T>(...result);
   }
 
   public union<Y = T>(other: ICollection<Y>): ICollection<T | Y> {
-    return Collection.create<T | Y>(
-      ...this.toArray(),
-      ...other.toArray()
-    );
+    return Collection.create<T | Y>(...this.toArray(), ...other.toArray());
   }
 
   public intersection(other: ICollection<T>): ICollection<T> {
     const result: T[] = [];
     const otherArray: T[] = other.toArray();
     const collectionLength = this.#_collection.length;
-    
+
     for (let i = 0; i < collectionLength; i++) {
       const find = otherArray.find((el) => el === this.#_collection[i]);
 

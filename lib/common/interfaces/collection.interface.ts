@@ -7,7 +7,7 @@ export interface ICollection<T> {
   find(
     fromIndex: number,
     toIndex: number,
-    operator?: FindOperator<T>,
+    operator?: FindOperator<T>
   ): ICollection<T>;
   findLeft(operator?: FindOperator<T>): ICollection<T>;
   findRight(operator?: FindOperator<T>): ICollection<T>;
