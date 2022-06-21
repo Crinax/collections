@@ -1,1 +1,2 @@
-export * from "./collect-all.operator";
+export * from "./slice.operator";
+export * from "./take.operator";

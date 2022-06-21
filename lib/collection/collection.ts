@@ -1,10 +1,9 @@
-import { collectAll } from "../operators/filter/collect-all.operator";
 import { FilterOperator } from "../common/types/filter-operator.type";
 import { ICollection } from "../common/interfaces/collection.interface";
 import { FindOperator } from "../common/types/find-operator.type";
-import { first } from "../operators/find/first.operator";
 import { MapOperator } from "../common/types/map-operator.type";
 import { TapOperator } from "../common/types/tap-operator.type";
+import { blank } from "../operators/unknown";
 
 export class Collection<T> implements ICollection<T> {
   protected constructor(collection: T[]) {
@@ -13,7 +12,7 @@ export class Collection<T> implements ICollection<T> {
 
   #_collection: T[];
 
-  public filter(operator: FilterOperator<T> = collectAll): ICollection<T> {
+  public filter(operator: FilterOperator<T> = blank): ICollection<T> {
     const result: T[] = [];
     const collectionLength = this.#_collection.length;
 
@@ -31,7 +30,7 @@ export class Collection<T> implements ICollection<T> {
   public find(
     fromIndex: number,
     toIndex: number,
-    operator: FindOperator<T> = first
+    operator: FindOperator<T> = blank
   ): ICollection<T> {
     let step = 1;
     const predicate = (i: number, direction: number, to: number) =>
@@ -52,11 +51,11 @@ export class Collection<T> implements ICollection<T> {
     return Collection.create<T>();
   }
 
-  public findLeft(operator: FindOperator<T> = first): ICollection<T> {
+  public findLeft(operator: FindOperator<T> = blank): ICollection<T> {
     return this.find(0, this.#_collection.length, operator);
   }
 
-  public findRight(operator: FindOperator<T> = first): ICollection<T> {
+  public findRight(operator: FindOperator<T> = blank): ICollection<T> {
     return this.find(this.#_collection.length - 1, -1, operator);
   }
 

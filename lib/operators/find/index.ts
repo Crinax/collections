@@ -1,2 +1,3 @@
-export * from "./element.operator";
-export * from "./first.operator";
+export * from "./index.operator";
+export * from "./max.operator";
+export * from "./min.operator";

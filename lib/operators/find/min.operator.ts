@@ -1,8 +1,6 @@
-import { ICollection } from "../../common/interfaces/collection.interface";
+import { comparison } from "../logic/comparison.operator";
 import { lt } from "../logic/lt.operator";
 
-export const min = (
-  element: number,
-  _: number,
-  collection: ICollection<number>
-) => collection.findLeft(lt(element)).length === 0;
+export const min = comparison<number>(
+  (element, _, collection) => collection.findLeft(lt(element)).length === 0
+);

@@ -1,5 +1,3 @@
-import { ComparisonOperator } from "../../common/types/comparison-operator.type";
+import { comparison } from "./comparison.operator";
 
-export const gt: ComparisonOperator<number> =
-  (value: number) => (element: number) =>
-    element > value;
+export const gt = (n: number) => comparison<number>((element) => element > n);

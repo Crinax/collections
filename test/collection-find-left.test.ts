@@ -1,20 +1,27 @@
-import { min } from "../lib/operators/find/min.operator";
-import { gt } from "../lib/operators/logic/gt.operator";
+import { log } from "./../lib/operators/tap/log.operator";
+import { ICollection } from "./../lib/common/interfaces/collection.interface";
+import { sort } from "./../lib/operators/map/sort.operator";
 import { Collection } from "../lib/collection/collection";
-import { ICollection } from "../lib/common/interfaces/collection.interface";
-import { log } from "../lib/operators/tap";
-import { or } from "../lib/operators/logic/or.operator";
 
 const collection = Collection.create<number>(
-  ...Array.from({ length: 21 }, (_, k) => k)
+  1,
+  10,
+  3450,
+  12,
+  4,
+  64,
+  123,
+  24,
+  66,
+  33,
+  65
 );
 
 let result: ICollection<number>;
+const timeA = process.hrtime.bigint();
 
-console.time();
+result = collection.map(sort(-1));
 
-result = collection.filter(or(min, gt(5)));
-
-console.timeEnd();
+process.stdout.write((process.hrtime.bigint() - timeA).toString() + "\n");
 
 result.tap(log);

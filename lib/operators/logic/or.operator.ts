@@ -1,7 +1,7 @@
-import { ICollection } from "../../common/interfaces/collection.interface";
+import { comparison } from "./comparison.operator";
 import { LikeLogicOperator } from "../../common/types/like-logic-operator.operator";
 
-export const or =
-  <T>(...args: LikeLogicOperator<T>[]) =>
-  (element: T, index: number, collection: ICollection<T>) =>
-    args.some((fn) => fn(element, index, collection.clone()));
+export const or = <T>(...operators: LikeLogicOperator<T>[]) =>
+  comparison<T>((element, index, collection) =>
+    operators.some((operator) => operator(element, index, collection.clone()))
+  );
